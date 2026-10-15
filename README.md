@@ -46,6 +46,8 @@ Each release has one asset group (`asset_groups.tf`) and one policy (`policies.t
 
 To move an asset between releases, change its cloud tag.
 
+> **Note:** The tag-based asset groups are a mock to demonstrate the scenario. In a real deployment, use membership filters that match how early adopters are actually chosen. For example, the EA group could be one or more specific cloud account IDs, and the GA group every account except those. The two groups must not overlap and must cover every asset together, so each asset runs exactly one version of each rule.
+
 The policies never change. Releasing a version only changes labels, so every asset gets exactly one version of each rule.
 
 ### Naming and labels
