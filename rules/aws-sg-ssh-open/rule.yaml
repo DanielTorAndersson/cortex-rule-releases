@@ -1,0 +1,29 @@
+title: AWS Security Group allows SSH (22) from the internet
+asset_type: EC2_SECURITY_GROUP
+severity: high
+enabled: true   # set to false to switch the rule off without deleting it
+labels: [network, aws]
+
+description: |
+  Detects non-shared AWS EC2 Security Groups with an inbound rule that exposes
+  TCP port 22 (SSH) to the entire internet (0.0.0.0/0 or ::/0), either
+  explicitly or through a port range that includes 22.
+
+recommendation: |
+  To remediate this issue:
+  1. Open the EC2 console and navigate to Security Groups.
+  2. Select the reported Security Group and open the Inbound rules tab.
+  3. Edit any rule covering port 22 with source 0.0.0.0/0 or ::/0.
+  4. Restrict the source to known administrative CIDRs, or remove the rule
+     and use AWS Systems Manager Session Manager / a bastion host instead.
+
+# Per-version overrides of the defaults above. Only list what differs.
+versions:
+  v2:
+    severity: medium
+    enabled: true
+
+# ga = version everyone gets, ea = version early adopters get (omit = same as ga).
+release:
+  ga: v1
+  ea: v2

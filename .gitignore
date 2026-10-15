@@ -1,0 +1,38 @@
+# Terraform working directory (providers, modules)
+.terraform/
+
+# State: contains tenant object IDs and API details. Never commit.
+*.tfstate
+*.tfstate.*
+
+# Crash logs
+crash.log
+crash.*.log
+
+# Variable files may contain credentials
+*.tfvars
+*.tfvars.json
+
+# Local overrides
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Saved plans can contain sensitive values
+*.tfplan
+tfplan
+
+# Provider config file with credentials (config_file option)
+cortexcloud_config.json
+
+# Local env files
+.env
+.env.*
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/
+
+# Keep .terraform.lock.hcl committed: it pins provider checksums.
